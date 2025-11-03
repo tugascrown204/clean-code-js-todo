@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #eaeaea;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     margin-top: 20px;
 }
 
-.task {
+task {
     display: flex;
     justify-content: space-between;
     align-items: center;
