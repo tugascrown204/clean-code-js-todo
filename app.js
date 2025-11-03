@@ -1,0 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+    addTaskBtn.addEventListener('click', addTask);
+
+    function addTask() {
+        const taskText = taskInput.value.trim();
+        if (taskText) {
+            const taskItem = createTaskElement(taskText);
+            taskList.appendChild(taskItem);
+            taskInput.value = '';
+            saveTasks();
+        }
+    }
+
+    function createTaskElement(taskText) {
+        const task = document.createElement('div');
+        task.className = 'task';
+        task.innerHTML = `
+            <span>${taskText}</span>
+            <button class='deleteBtn'>Delete</button>
+        `;
+
+        task.querySelector('.deleteBtn').addEventListener('click', () => {
+            taskList.removeChild(task);
+            saveTasks();
+        });
+
+        return task;
+    }
+
+    function saveTasks() {
+        const tasks = [];
+        document.querySelectorAll('.task').forEach(task => {
+            tasks.push(task.querySelector('span').textContent);
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.forEach(taskText => {
+            const taskItem = createTaskElement(taskText);
+            taskList.appendChild(taskItem);
+        });
+    }
+
+    loadTasks();
+});
