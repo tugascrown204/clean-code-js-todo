@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const deleteBtn = task.querySelector('.deleteBtn');
         deleteBtn.addEventListener('click', () => {
-            taskList.removeChild(task);
-            saveTasks();
+            if (taskList.contains(task)) {
+                taskList.removeChild(task);
+                saveTasks();
+            }
         });
 
         return task;
