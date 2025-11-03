@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.appendChild(taskItem);
             taskInput.value = '';
             saveTasks();
+        } else {
+            alert('Please enter a task.');
         }
     }
 
