@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addTaskBtn.addEventListener('click', addTask);
 
+    // Add event listener for the Enter key
+    taskInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            addTask();
+        }
+    });
+
     function addTask() {
         const taskText = taskInput.value.trim();
         if (taskText) {
