@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const taskList = document.getElementById('taskList');
 
+    // Add placeholder text to the input field
+    taskInput.placeholder = 'Enter a new task...';
+
     addTaskBtn.addEventListener('click', addTask);
 
     function addTask() {
