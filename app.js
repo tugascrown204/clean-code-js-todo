@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class='deleteBtn'>Delete</button>
         `;
 
-        task.querySelector('.deleteBtn').addEventListener('click', () => {
+        const deleteBtn = task.querySelector('.deleteBtn');
+        deleteBtn.addEventListener('click', () => {
             taskList.removeChild(task);
             saveTasks();
         });
